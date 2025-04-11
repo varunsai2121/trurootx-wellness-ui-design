@@ -5,7 +5,7 @@ interface ProductCardProps {
   name: string;
   description: string;
   price: string;
-  image: string;
+  image?: string; // Make image optional
   benefits: string[];
   isVegan?: boolean;
   isFastAbsorbing?: boolean;
@@ -22,14 +22,24 @@ const ProductCard = ({
   isFastAbsorbing = false,
   isNatural = true,
 }: ProductCardProps) => {
+  // Determine background color based on product type
+  const isGummy = name.toLowerCase().includes('gummies');
+  const bgColorClass = isGummy ? 'bg-trurootx-peach-light' : 'bg-trurootx-green-light';
+  
   return (
     <div className="product-card group h-full flex flex-col">
-      <div className="relative h-48 mb-4 overflow-hidden rounded-xl bg-trurootx-green-light flex items-center justify-center">
-        <img
-          src={image}
-          alt={name}
-          className="h-40 w-auto object-cover transition-transform group-hover:scale-105"
-        />
+      <div className={`relative h-48 mb-4 overflow-hidden rounded-xl ${bgColorClass} flex items-center justify-center`}>
+        {image ? (
+          <img
+            src={image}
+            alt={name}
+            className="h-40 w-auto object-cover transition-transform group-hover:scale-105"
+          />
+        ) : (
+          <div className="text-xl font-semibold text-primary text-center p-4">
+            {name}
+          </div>
+        )}
       </div>
       
       <div className="flex-1 flex flex-col">
