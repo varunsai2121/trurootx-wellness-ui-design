@@ -1,5 +1,5 @@
 
-import { Leaf, Clock, CheckCircle, Flask } from 'lucide-react';
+import { Leaf, Clock, CheckCircle, Beaker } from 'lucide-react';
 
 const features = [
   {
@@ -18,7 +18,7 @@ const features = [
     description: 'We use only premium plant extracts and natural ingredients with no artificial additives.'
   },
   {
-    icon: <Flask className="h-10 w-10 text-primary" />,
+    icon: <Beaker className="h-10 w-10 text-primary" />,
     title: 'Scientifically Proven',
     description: 'All formulations are backed by research and developed by nutrition scientists.'
   }
